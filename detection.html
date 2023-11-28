@@ -1,49 +1,37 @@
 <!DOCTYPE html>
-<html lang="ko">
-    <!DOCTYPE html>
-<html lang="ko">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>detection</title>
+    <title>동영상 업로드 및 분석 프로토타입</title>
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="styles_detection.css"> <!-- 분석 페이지용 스타일 시트 -->
 </head>
 <body>
     <header class="header">
-        <img src ='img/logo.png' href="index.html" class="logo"></img>
+        <img onclick='movePage_Home()' src='img/logo.png' href="index.html" class="logo">
         <nav class="nav-items">
-          <a href="index.html">Home</a>
-          <a href="detection.html">detection</a>
-          <a href="company.html">Company</a>
+            <a href="index.html">홈</a>
+            <a href="detection.html">분석</a>
+            <a href="company.html">회사</a>
+            <a href="#">정책</a>
         </nav>
-      </header>
+    </header>
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>동영상 업로드 및 분석 프로토 타입</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            text-align: center;
-            padding: 20px;
-        }
-
-        #videoPlayer {
-            max-width: 100%;
-            margin-top: 20px;
-        }
-    </style>
-</head>
-<body>
     <h1>동영상 업로드 및 분석</h1>
 
-    <input type="file" accept="video/*" id="videoInput" onchange="playAndAnalyze()">
+    <!-- 파일 업로드 버튼 -->
+    <label class="input-file-button" for="videoInput">
+        업로드
+    </label>
+    <input type="file" accept="video/*" id="videoInput" style="display: none;" onchange="playAndAnalyze()">
+    <button onclick="redirectToDetection()">분석하기</button>
+
     <video controls id="videoPlayer" onended="analyzeVideo()">
-        현재 브라우저는 video 태그를 지원하지 않습니다.
+        현재 브라우저는 비디오 태그를 지원하지 않습니다.
     </video>
 
-    <!-- 분석하기 버튼 추가 -->
-    <button onclick="redirectToDetection()">분석하기</button>
+    <!-- 분석하기 버튼 -->
+    
 
     <script>
         function playAndAnalyze() {
@@ -58,16 +46,19 @@
                 videoPlayer.play();
             }
         }
-
-        function analyzeVideo() {
-            // 동영상이 종료되면 분석 페이지로 이동하는 코드를 여기에 추가하세요.
-            alert('동영상 재생이 완료되었습니다. 분석 페이지로 이동합니다.');
-           // redirectToDetection();
+        
+        function movePage_Home() {
+            window.location.href = 'index.html';
         }
 
-        // 분석 페이지로 이동하는 함수
+        function analyzeVideo() {
+            // 비디오 재생이 끝나면 분석 페이지로 이동하는 코드 추가
+            alert('비디오 재생이 완료되었습니다. 분석 페이지로 이동합니다.');
+            // redirectToDetection();
+        }
+
         function redirectToDetection() {
-            window.location.href = 'detetion.html'; // 분석 페이지의 실제 주소로 변경해주세요.
+            window.location.href = 'detection_play.html'; // 분석 페이지 주소로 변경
         }
     </script>
 </body>

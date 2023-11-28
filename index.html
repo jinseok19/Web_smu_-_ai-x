@@ -12,7 +12,7 @@
 
 <body>
   <header class="header">
-    <img onclick = 'movePage' src ='img/logo.png' href="index.html" class="logo"></img>
+    <img onclick = 'movePage_Home()' src ='img/logo.png' href="index.html" class="logo"></img>
     <nav class="nav-items">
       <a href="index.html">Home</a>
       <a href="detection.html">detection</a>
@@ -30,6 +30,9 @@
 
         function movePage() {
         window.location.href = 'detection.html';
+        }
+        function movePage_Home() {
+        window.location.href = 'index.html';
         }
     </script>
     <div class="achievements">
